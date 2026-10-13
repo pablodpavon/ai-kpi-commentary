@@ -1,0 +1,97 @@
+{
+ "month": "2026-09",
+ "kpis": {
+  "revenue_m": {
+   "label": "Facturación",
+   "unit": "ARS M",
+   "value": 153.96106639,
+   "prev": 163.75825783,
+   "last_year": 113.95973631,
+   "mom": -5.982715967930363,
+   "yoy": 35.1012834666325,
+   "change_unit": "%"
+  },
+  "orders": {
+   "label": "Pedidos",
+   "unit": "pedidos",
+   "value": 3409,
+   "prev": 3703,
+   "last_year": 3306,
+   "mom": -7.939508506616255,
+   "yoy": 3.115547489413184,
+   "change_unit": "%"
+  },
+  "aov": {
+   "label": "Ticket promedio",
+   "unit": "ARS",
+   "value": 45163.117157524204,
+   "prev": 44223.13200918174,
+   "last_year": 34470.579646098005,
+   "mom": 2.125550827443212,
+   "yoy": 31.019314502988273,
+   "change_unit": "%"
+  },
+  "gross_margin_pct": {
+   "label": "Margen bruto",
+   "unit": "%",
+   "value": 35.89171029773353,
+   "prev": 36.15154944519356,
+   "last_year": 35.889331393978544,
+   "mom": -0.2598391474600277,
+   "yoy": 0.0023789037549875047,
+   "change_unit": "pp"
+  },
+  "return_rate_pct": {
+   "label": "Tasa de devolución",
+   "unit": "%",
+   "value": 6.688178351422705,
+   "prev": 6.859303267620848,
+   "last_year": 5.59588626739262,
+   "mom": -0.17112491619814296,
+   "yoy": 1.0922920840300847,
+   "change_unit": "pp"
+  },
+  "new_customers": {
+   "label": "Clientes nuevos",
+   "unit": "clientes",
+   "value": 1039,
+   "prev": 1162,
+   "last_year": 1040,
+   "mom": -10.585197934595525,
+   "yoy": -0.09615384615384581,
+   "change_unit": "%"
+  },
+  "cac": {
+   "label": "Costo de adquisición (CAC)",
+   "unit": "ARS",
+   "value": 11400.283676612127,
+   "prev": 11349.81860585198,
+   "last_year": 8725.017394230768,
+   "mom": 0.4446332801664843,
+   "yoy": 30.66201660698489,
+   "change_unit": "%"
+  }
+ },
+ "by_channel": {
+  "Búsqueda paga": {
+   "revenue_m": 35.8291379,
+   "share_pct": 23.2715573749281,
+   "mom": -0.5016166322860394
+  },
+  "Marketplace": {
+   "revenue_m": 29.127437199999996,
+   "share_pct": 18.91870320397564,
+   "mom": 0.5913106878329577
+  },
+  "Orgánico": {
+   "revenue_m": 55.77417037,
+   "share_pct": 36.226152284966645,
+   "mom": 0.9123568062187948
+  },
+  "Paid social": {
+   "revenue_m": 33.23032092,
+   "share_pct": 21.5835871361296,
+   "mom": -23.647706893712616
+  }
+ }
+}
