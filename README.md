@@ -77,4 +77,4 @@ Synthetic: about 47,000 orders of a fictional online store, September 2025 to Se
 
 ---
 
-Pablo Pavón · Senior Business & Data Analyst · [pablodpavon.github.io](https://pablodpavon.github.io)
+Pablo Pavon · Senior Business & Data Analyst · [pablodpavon.github.io](https://pablodpavon.github.io)
