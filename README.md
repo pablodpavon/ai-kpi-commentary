@@ -1,5 +1,6 @@
 # AI KPI commentary, with every number checked
 
+[![tests](https://github.com/pablodpavon/ai-kpi-commentary/actions/workflows/tests.yml/badge.svg)](https://github.com/pablodpavon/ai-kpi-commentary/actions/workflows/tests.yml)
 Case study on synthetic data · [Case page on pablodpavon.com](https://pablodpavon.com/proyectos/reporte-con-ia.html) · MIT license
 
 **A KPI report (monthly sample, plus a weekly live run) where an LLM drafts the commentary and a checker verifies every number against the data before anyone reads it. If a single number cannot be backed by the data, the report is blocked.**
