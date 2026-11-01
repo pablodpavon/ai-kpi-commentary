@@ -1,0 +1,19 @@
+{
+ "week": "2026-W42",
+ "from": "2026-10-12",
+ "to": "2026-10-18",
+ "run_utc": "2026-11-01T11:12:05Z",
+ "data": "synthetic",
+ "planted_anomaly": "missing_day",
+ "status": "BLOCKED",
+ "blocked_by": "data_check",
+ "numbers_checked": 0,
+ "problems": 1,
+ "reasons": [
+  "MISSING_DAY: no orders on 2026-10-12"
+ ],
+ "model": null,
+ "usage": null,
+ "cost_usd": 0.0,
+ "cost_estimate_usd": 0.0
+}

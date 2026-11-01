@@ -23,6 +23,13 @@ ALIASES = {
 MOM_WORDS = re.compile(r"mes anterior|agosto|mensual|contra el mes", re.I)
 YOY_WORDS = re.compile(r"interanual|año anterior|mismo mes de 2025|septiembre de 2025|contra 2025", re.I)
 
+# Weekly reports: "contra la semana anterior" / "contra la misma semana de 2025".
+WEEK_WOW_WORDS = re.compile(r"semana anterior|semana pasada|contra la semana", re.I)
+WEEK_YOY_WORDS = re.compile(r"misma semana|interanual|año anterior|año pasado", re.I)
+# Numbers that are labels, not data: "semana 43", "del 19 al 25 de octubre". They are skipped.
+_MONTHS = "enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre"
+WEEK_SKIP = re.compile(rf"\bsemanas?\s+\d{{1,2}}\b|\b\d{{1,2}}\s+al\s+\d{{1,2}}\s+de\s+(?:{_MONTHS})|\b\d{{1,2}}\s+de\s+(?:{_MONTHS})", re.I)
+
 
 @dataclass
 class Finding:
@@ -50,15 +57,19 @@ def fact_values(facts: dict) -> list[tuple[str, float, bool]]:
     return out
 
 
-def check(text: str, facts: dict) -> list[Finding]:
+def check(text: str, facts: dict, mom_words=MOM_WORDS, yoy_words=YOY_WORDS, skip=None) -> list[Finding]:
+    """mom_words / yoy_words: phrases that name the short and the year-on-year comparison.
+    skip: optional regex; numbers inside its matches are labels (week numbers, day numbers) and are not checked."""
     allowed = fact_values(facts)
     findings = []
     for sentence in re.split(r"(?<=[.!?])\s+|\n+", text):
         s = sentence.strip()
         if not s or s.startswith("#"):
             continue
-        for tok in NUM_RE.findall(s):
-            if tok in YEARS:
+        skipped = [m.span() for m in skip.finditer(s)] if skip else []
+        for m in NUM_RE.finditer(s):
+            tok = m.group(0)
+            if tok in YEARS or any(a <= m.start() and m.end() <= b for a, b in skipped):
                 continue
             val, dec = parse_number(tok)
             hits = [(n, v, ch) for n, v, ch in allowed if round(abs(v), dec) == round(abs(val), dec)]
@@ -72,7 +83,7 @@ def check(text: str, facts: dict) -> list[Finding]:
                 findings.append(Finding(s, tok, val, "WRONG_METRIC", hits[0][0]))
                 continue
             pool = on_metric or hits
-            says_mom, says_yoy = bool(MOM_WORDS.search(s)), bool(YOY_WORDS.search(s))
+            says_mom, says_yoy = bool(mom_words.search(s)), bool(yoy_words.search(s))
             if says_mom != says_yoy:  # the sentence names exactly one comparison period
                 want = (".mom", ".prev") if says_mom else (".yoy", ".last_year")
                 in_period = [h for h in pool if h[0].endswith(want) or h[0].endswith(".value")

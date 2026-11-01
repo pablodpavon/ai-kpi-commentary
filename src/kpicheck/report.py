@@ -56,7 +56,15 @@ def _mark(text, findings):
     return "\n".join(out)
 
 
-def render(facts, text, findings, path: Path, source_note: str):
+MONTHLY = {"kicker": "Reporte mensual · tienda online (datos sintéticos)", "title": "Septiembre 2026: KPIs y comentario",
+           "kpi_heading": "KPIs del mes", "cols": ("Septiembre", "vs agosto", "vs sep. 2025"), "page_title": None}
+
+
+def render(facts, text, findings, path: Path, source_note: str, labels: dict | None = None):
+    """labels: kicker, title, kpi_heading, cols (current, short comparison, year-on-year), page_title.
+    Defaults to the monthly September 2026 case study."""
+    lb = {**MONTHLY, **(labels or {})}
+    page_title = lb["page_title"] or f"Reporte mensual · {facts.get('month', '')}"
     bad = [f for f in findings if f.status != "OK"]
     ok_n = len(findings) - len(bad)
     banner = (f'<div class="banner pass"><b>Liberado.</b> Los {ok_n} números del comentario coinciden con los datos.</div>'
@@ -67,7 +75,7 @@ def render(facts, text, findings, path: Path, source_note: str):
                      f"<td class='muted'>{html.escape(f.sentence)}</td></tr>" for f in bad)
     issues_html = f"<h2>Qué hay que corregir</h2><table class='issues'><tr><th>Número</th><th>Problema</th><th>Oración</th></tr>{issues}</table>" if bad else ""
     page = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reporte mensual · {facts['month']}</title>
+<title>{html.escape(page_title)}</title>
 <style>
 :root{{--ink:#14213d;--muted:#5c6b80;--line:#e3e8ef;--bg:#fbfaf7;--ok:#1b7a4b;--bad:#b3261e;--accent:#d97706}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}}
@@ -84,11 +92,11 @@ th,td{{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;vert
 .muted{{color:var(--muted);font-size:13px}}footer{{margin-top:26px;color:var(--muted);font-size:12px}}
 @media (max-width:600px){{td,th{{padding:6px 8px}}h1{{font-size:21px}}}}
 </style></head><body><main>
-<div class="kicker">Reporte mensual · tienda online (datos sintéticos)</div>
-<h1>Septiembre 2026: KPIs y comentario</h1>
+<div class="kicker">{html.escape(lb["kicker"])}</div>
+<h1>{html.escape(lb["title"])}</h1>
 {banner}
-<h2>KPIs del mes</h2>
-<table><tr><th>Métrica</th><th class="num">Septiembre</th><th class="num">vs agosto</th><th class="num">vs sep. 2025</th></tr>
+<h2>{html.escape(lb["kpi_heading"])}</h2>
+<table><tr><th>Métrica</th><th class="num">{lb["cols"][0]}</th><th class="num">{lb["cols"][1]}</th><th class="num">{lb["cols"][2]}</th></tr>
 {_kpi_rows(facts)}</table>
 <h2>Comentario</h2><div class="commentary">{_mark(text, findings)}</div>
 {issues_html}

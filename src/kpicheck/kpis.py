@@ -15,8 +15,10 @@ KPI_DEF = {
 
 
 def _month(orders, spend, period):
-    o = orders[orders.period == period]
-    s = spend[spend.period == period]
+    return _period(orders[orders.period == period], spend[spend.period == period])
+
+
+def _period(o, s):
     new = int(o.new_customer.sum())
     return {
         "revenue_m": o.revenue_ars.sum() / 1e6,
@@ -25,8 +27,37 @@ def _month(orders, spend, period):
         "gross_margin_pct": 100 * o.gross_margin_ars.sum() / o.revenue_ars.sum(),
         "return_rate_pct": 100 * o.returned.mean(),
         "new_customers": new,
-        "cac": s.spend_ars.sum() / new,
+        "cac": s.spend_ars.sum() / new if new else float("nan"),
     }
+
+
+def _facts(label, cur, prev, ly, o, op):
+    facts = {"month": label, "kpis": {}, "by_channel": {}}
+    for k, (name, unit) in KPI_DEF.items():
+        is_rate = unit == "%"
+        facts["kpis"][k] = {
+            "label": name, "unit": unit, "value": cur[k], "prev": prev[k], "last_year": ly[k],
+            # rates move in percentage points; everything else in percent
+            "mom": cur[k] - prev[k] if is_rate else 100 * (cur[k] / prev[k] - 1),
+            "yoy": cur[k] - ly[k] if is_rate else 100 * (cur[k] / ly[k] - 1),
+            "change_unit": "pp" if is_rate else "%",
+        }
+    for ch in sorted(o.channel.unique()):
+        r, rp = o[o.channel == ch].revenue_ars.sum(), op[op.channel == ch].revenue_ars.sum()
+        facts["by_channel"][ch] = {"revenue_m": r / 1e6, "share_pct": 100 * r / o.revenue_ars.sum(),
+                                   "mom": 100 * (r / rp - 1)}
+    return facts
+
+
+def compute_frames(label: str, cur: tuple, prev: tuple, last_year: tuple) -> dict:
+    """Facts for any period from (orders, spend) frames already cut to that period.
+
+    Used by the weekly pipeline: "mom" and "prev" then mean "against the previous week",
+    "yoy" and "last_year" "against the same week last year".
+    """
+    facts = _facts(label, _period(*cur), _period(*prev), _period(*last_year), cur[0], prev[0])
+    facts["period"] = facts.pop("month")
+    return facts
 
 
 def compute(data_dir: Path, month: str) -> dict:
