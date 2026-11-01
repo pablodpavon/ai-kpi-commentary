@@ -1,6 +1,8 @@
 # AI KPI commentary, with every number checked
 
-**A monthly KPI report where an LLM drafts the commentary and a checker verifies every number against the data before anyone reads it. If a single number cannot be backed by the data, the report is blocked.**
+Case study on synthetic data · [Case page on pablodpavon.com](https://pablodpavon.com/proyectos/reporte-con-ia.html) · MIT license
+
+**A KPI report (monthly sample, plus a weekly live run) where an LLM drafts the commentary and a checker verifies every number against the data before anyone reads it. If a single number cannot be backed by the data, the report is blocked.**
 
 *Versión en español más abajo. The sample report itself is in Spanish, written for an Argentine online retailer (fictional).*
 
@@ -104,4 +106,4 @@ Synthetic: about 47,000 orders of a fictional online store, September 2025 to Se
 
 ---
 
-Pablo Pavon · Senior Business & Data Analyst · [pablodpavon.github.io](https://pablodpavon.github.io)
+Pablo Pavon · Senior Business & Data Analyst · [pablodpavon.com](https://pablodpavon.com)
