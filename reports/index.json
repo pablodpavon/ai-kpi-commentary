@@ -1,32 +1,32 @@
 {
  "data": "synthetic",
- "runs": 2,
- "released": 1,
+ "runs": 3,
+ "released": 2,
  "blocked": 1,
  "blocked_by_data_check": 1,
  "blocked_by_number_check": 0,
- "total_cost_usd": 0.00139,
+ "total_cost_usd": 0.002833,
  "last": {
-  "week": "2026-W43",
-  "from": "2026-10-19",
-  "to": "2026-10-25",
-  "run_utc": "2026-11-01T11:13:55Z",
+  "week": "2026-W44",
+  "from": "2026-10-26",
+  "to": "2026-11-01",
+  "run_utc": "2026-11-02T06:30:07Z",
   "data": "synthetic",
   "planted_anomaly": null,
   "status": "RELEASED",
   "blocked_by": null,
-  "numbers_checked": 14,
+  "numbers_checked": 20,
   "problems": 0,
   "reasons": [],
   "model": "claude-haiku-5-5",
   "usage": {
-   "input_tokens": 1265,
-   "output_tokens": 2527,
+   "input_tokens": 1262,
+   "output_tokens": 2633,
    "cache_creation_input_tokens": 0,
    "cache_read_input_tokens": 0
   },
-  "cost_usd": 0.00139,
-  "cost_estimate_usd": 0.00209
+  "cost_usd": 0.001443,
+  "cost_estimate_usd": 0.002089
  },
  "history": [
   {
@@ -56,6 +56,19 @@
    "reasons": [],
    "model": "claude-haiku-5-5",
    "cost_usd": 0.00139
+  },
+  {
+   "week": "2026-W44",
+   "from": "2026-10-26",
+   "to": "2026-11-01",
+   "run_utc": "2026-11-02T06:30:07Z",
+   "status": "RELEASED",
+   "blocked_by": null,
+   "numbers_checked": 20,
+   "problems": 0,
+   "reasons": [],
+   "model": "claude-haiku-5-5",
+   "cost_usd": 0.001443
   }
  ]
 }
