@@ -1,0 +1,24 @@
+{
+ "week": "2026-W45",
+ "from": "2026-11-02",
+ "to": "2026-11-08",
+ "run_utc": "2026-11-09T06:30:09Z",
+ "data": "synthetic",
+ "planted_anomaly": null,
+ "status": "BLOCKED",
+ "blocked_by": "number_check",
+ "numbers_checked": 16,
+ "problems": 1,
+ "reasons": [
+  "WRONG_DIRECTION: 41,4 | El CAC bajó a ARS 12.713, un 7,6% menos contra la semana anterior, pero sigue arriba un 41,4% contra la misma semana de 2025."
+ ],
+ "model": "claude-haiku-5-5",
+ "usage": {
+  "input_tokens": 1264,
+  "output_tokens": 2521,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0
+ },
+ "cost_usd": 0.001387,
+ "cost_estimate_usd": 0.002089
+}
