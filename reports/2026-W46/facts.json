@@ -1,0 +1,99 @@
+{
+ "kpis": {
+  "revenue_m": {
+   "label": "Facturación",
+   "unit": "ARS M",
+   "value": 51.49401489,
+   "prev": 52.731903620000004,
+   "last_year": 34.3845915,
+   "mom": -2.3475138294277276,
+   "yoy": 49.75898402050234,
+   "change_unit": "%"
+  },
+  "orders": {
+   "label": "Pedidos",
+   "unit": "pedidos",
+   "value": 1097,
+   "prev": 1137,
+   "last_year": 969,
+   "mom": -3.518029903254183,
+   "yoy": 13.209494324045412,
+   "change_unit": "%"
+  },
+  "aov": {
+   "label": "Ticket promedio",
+   "unit": "ARS",
+   "value": 46940.76106654512,
+   "prev": 46378.10344766931,
+   "last_year": 35484.61455108359,
+   "mom": 1.2131966963907503,
+   "yoy": 32.2848272706169,
+   "change_unit": "%"
+  },
+  "gross_margin_pct": {
+   "label": "Margen bruto",
+   "unit": "%",
+   "value": 35.765738521927865,
+   "prev": 35.975235991300245,
+   "last_year": 35.931596220940996,
+   "mom": -0.2094974693723799,
+   "yoy": -0.16585769901313085,
+   "change_unit": "pp"
+  },
+  "return_rate_pct": {
+   "label": "Tasa de devolución",
+   "unit": "%",
+   "value": 5.925250683682772,
+   "prev": 6.948109058927001,
+   "last_year": 8.25593395252838,
+   "mom": -1.0228583752442288,
+   "yoy": -2.3306832688456085,
+   "change_unit": "pp"
+  },
+  "new_customers": {
+   "label": "Clientes nuevos",
+   "unit": "clientes",
+   "value": 382,
+   "prev": 342,
+   "last_year": 284,
+   "mom": 11.695906432748536,
+   "yoy": 34.50704225352113,
+   "change_unit": "%"
+  },
+  "cac": {
+   "label": "Costo de adquisición (CAC)",
+   "unit": "ARS",
+   "value": 11596.114581151834,
+   "prev": 12713.46567251462,
+   "last_year": 10579.821056338029,
+   "mom": -8.788721503204266,
+   "yoy": 9.605961380650928,
+   "change_unit": "%"
+  }
+ },
+ "by_channel": {
+  "Búsqueda paga": {
+   "revenue_m": 11.48677985,
+   "share_pct": 22.307019319697098,
+   "mom": 6.916350501984381
+  },
+  "Marketplace": {
+   "revenue_m": 10.169061919999997,
+   "share_pct": 19.748046334555283,
+   "mom": 14.129567940521914
+  },
+  "Orgánico": {
+   "revenue_m": 15.33104956,
+   "share_pct": 29.77248830325182,
+   "mom": -15.450373203829827
+  },
+  "Paid social": {
+   "revenue_m": 14.507123559999998,
+   "share_pct": 28.17244604249579,
+   "mom": -2.9330933822190763
+  }
+ },
+ "period": "2026-W46",
+ "period_prev": "2026-W45",
+ "period_last_year": "2025-W46"
+}

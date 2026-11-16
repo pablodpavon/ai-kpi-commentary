@@ -22,8 +22,8 @@ Case study on synthetic data · [Case page on pablodpavon.com](https://pablodpav
 It runs on a Mac with launchd, Mondays at 07:30 (Berlin), for the week that just closed. The API key stays in a local file outside the repository; [`run_weekly.py`](run_weekly.py) reads it only when it calls the model.
 
 <!-- LIVE:START -->
-**Last run:** week 2026-W45 (2026-11-02 to 2026-11-08), run 2026-11-09T06:30:09Z: **BLOCKED (number check)**, 16 numbers checked, LLM cost US$ 0.0014.  
-**History:** 4 weekly runs, 2 released, 2 blocked (1 by the data check, 1 by the number check). Every run: [reports/index.md](reports/index.md).
+**Last run:** week 2026-W46 (2026-11-09 to 2026-11-15), run 2026-11-16T06:32:55Z: **RELEASED**, 13 numbers checked, LLM cost US$ 0.0014.  
+**History:** 5 weekly runs, 3 released, 2 blocked (1 by the data check, 1 by the number check). Every run: [reports/index.md](reports/index.md).
 <!-- LIVE:END -->
 
 **What a block looks like.** A data-check block lists the failed control (`MISSING_DAY: no orders on 2026-10-12`) and costs nothing, because the model is not called. A number-check block keeps the draft and marks the unsupported figure in red with its reason, the same way as the monthly example below. Either way nothing is released for that week, and the next run starts clean.

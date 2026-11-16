@@ -1,34 +1,32 @@
 {
  "data": "synthetic",
- "runs": 4,
- "released": 2,
+ "runs": 5,
+ "released": 3,
  "blocked": 2,
  "blocked_by_data_check": 1,
  "blocked_by_number_check": 1,
- "total_cost_usd": 0.00422,
+ "total_cost_usd": 0.005592,
  "last": {
-  "week": "2026-W45",
-  "from": "2026-11-02",
-  "to": "2026-11-08",
-  "run_utc": "2026-11-09T06:30:09Z",
+  "week": "2026-W46",
+  "from": "2026-11-09",
+  "to": "2026-11-15",
+  "run_utc": "2026-11-16T06:32:55Z",
   "data": "synthetic",
   "planted_anomaly": null,
-  "status": "BLOCKED",
-  "blocked_by": "number_check",
-  "numbers_checked": 16,
-  "problems": 1,
-  "reasons": [
-   "WRONG_DIRECTION: 41,4 | El CAC bajó a ARS 12.713, un 7,6% menos contra la semana anterior, pero sigue arriba un 41,4% contra la misma semana de 2025."
-  ],
+  "status": "RELEASED",
+  "blocked_by": null,
+  "numbers_checked": 13,
+  "problems": 0,
+  "reasons": [],
   "model": "claude-haiku-5-5",
   "usage": {
-   "input_tokens": 1264,
-   "output_tokens": 2521,
+   "input_tokens": 1267,
+   "output_tokens": 2490,
    "cache_creation_input_tokens": 0,
    "cache_read_input_tokens": 0
   },
-  "cost_usd": 0.001387,
-  "cost_estimate_usd": 0.002089
+  "cost_usd": 0.001372,
+  "cost_estimate_usd": 0.00209
  },
  "history": [
   {
@@ -86,6 +84,19 @@
    ],
    "model": "claude-haiku-5-5",
    "cost_usd": 0.001387
+  },
+  {
+   "week": "2026-W46",
+   "from": "2026-11-09",
+   "to": "2026-11-15",
+   "run_utc": "2026-11-16T06:32:55Z",
+   "status": "RELEASED",
+   "blocked_by": null,
+   "numbers_checked": 13,
+   "problems": 0,
+   "reasons": [],
+   "model": "claude-haiku-5-5",
+   "cost_usd": 0.001372
   }
  ]
 }

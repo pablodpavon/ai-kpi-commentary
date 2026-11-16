@@ -1,0 +1,22 @@
+{
+ "week": "2026-W46",
+ "from": "2026-11-09",
+ "to": "2026-11-15",
+ "run_utc": "2026-11-16T06:32:55Z",
+ "data": "synthetic",
+ "planted_anomaly": null,
+ "status": "RELEASED",
+ "blocked_by": null,
+ "numbers_checked": 13,
+ "problems": 0,
+ "reasons": [],
+ "model": "claude-haiku-5-5",
+ "usage": {
+  "input_tokens": 1267,
+  "output_tokens": 2490,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0
+ },
+ "cost_usd": 0.001372,
+ "cost_estimate_usd": 0.00209
+}
